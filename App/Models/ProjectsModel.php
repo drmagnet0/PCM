@@ -35,12 +35,20 @@ class ProjectsModel extends Model
 
   public function all()
   {
-    return $this->select('p.*', 'c.name AS `category_id`', 'u.name AS `bussinesaccount_id`')
+    return $this->select('p.*', 'c.name AS `category`', 'u.name AS `bussinesaccount`')
                 ->from('projects p')
-                ->join('LEFT JOIN players c ON p.id=c.id')
-                ->join('LEFT JOIN users u ON p.id=u.id')
+                ->join('LEFT JOIN players c ON p.category_id=c.id')
+                ->join('LEFT JOIN users u ON p.bussinesaccount_id=u.id')
                 ->fetchAll();
   }
+
+  // public function all()
+  // {
+  //   return $this->select('p.*', 'c.name AS `category`')
+  //               ->from('projects p')
+  //               ->join('LEFT JOIN players c ON p.category_id=c.id')
+  //               ->fetchAll();
+  // }
 
   public function create()
   {

@@ -34,7 +34,7 @@
 
               <div class="form-group col-lg-6">
                 <label for="category_id">Player</label>
-                <select id="category_id" name="category" class="form-control">
+                <select id="category_id" name="category_id" class="form-control">
                   <?php foreach ($categories as $category) { ?>
                     <option value="<?php echo $category->id; ?>" <?php echo $category->id == $category_id ? 'selected' : false; ?>><?php echo $category->name; ?></option>
                   <?php } ?>
@@ -86,7 +86,7 @@
               </div>
               <div class="form-group col-lg-6">
                 <label for="ba_id">Account Manager</label>
-                <select id="ba_id" name="bussinesaccount" class="form-control">
+                <select id="ba_id" name="bussinesaccount_id" class="form-control">
                   <?php foreach ($bussinesaccounts as $bussinesaccount) { ?>
                     <option value="<?php echo $bussinesaccount->id; ?>" <?php echo $bussinesaccount->id == $bussinesaccount_id ? 'selected' : false; ?>><?php echo $bussinesaccount->name; ?></option>
                   <?php } ?>

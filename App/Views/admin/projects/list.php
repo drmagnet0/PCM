@@ -36,7 +36,7 @@
                                         <th>Start</th>
                                         <th>End</th>
                                         <th>B.A</th>
-                                        <th>Created</th>
+                                        <!-- <th>Created</th> -->
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -46,18 +46,18 @@
                                     foreach ($projects as $project) { ?>
                                       <tr class="odd gradeX">
                                         <td class="text-center vertical-middle"><?php echo $project->id; ?></td>
-                                        <td><img src="<?php echo assets('images/' . $project->image); ?>" style="width:50px;height:50px;border-radius:50%;" alt=""></td>
-                                        <td><?php echo $project->name; ?></td>
-                                        <td class="text-center vertical-middle"><?php echo $project->category_id; ?></td>
-                                        <td><?php echo $project->slides; ?></td>
-                                        <td><?php echo $project->static; ?></td>
-                                        <td><?php echo $project->basic; ?></td>
-                                        <td><?php echo $project->animation; ?></td>
-                                        <td><?php echo $project->app; ?></td>
-                                        <td><?php echo date('d/m/Y', $project->startdate); ?></td>
-                                        <td><?php echo date('d/m/Y', $project->enddate); ?></td>
-                                        <td><?php echo $project->bussinesaccount_id; ?></td>
-                                        <td class="text-center vertical-middle"><?php echo date('d/m/Y', $project->created); ?></td>
+                                        <td class="text-center vertical-middle"><img src="<?php echo assets('images/' . $project->image); ?>" style="width:50px;height:50px;border-radius:50%;" alt=""></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->name; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->category; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->slides; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->static; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->basic; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->animation; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->app; ?></td>
+                                        <td class="text-center vertical-middle"><?php echo date('d/m/Y', $project->startdate); ?></td>
+                                        <td class="text-center vertical-middle"><?php echo date('d/m/Y', $project->enddate); ?></td>
+                                        <td class="text-center vertical-middle"><?php echo $project->bussinesaccount; ?></td>
+                                        <!-- <td class="text-center vertical-middle"><?php echo date('d/m/Y', $project->created); ?></td> -->
                                         <td class="text-center vertical-middle"><?php echo ucfirst($project->status); ?></td>
                                         <td class="text-center vertical-middle">
                                           <button type="button" data-target="<?php echo url('admin/projects/edit/' . $project->id) ?>" data-modal-target="#editProject-<?php echo $project->id; ?>" class="btn btn-primary open-popup">
