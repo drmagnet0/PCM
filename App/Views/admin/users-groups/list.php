@@ -6,7 +6,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                       Users Groups
-                      <a class="btn btn-primary pull-right open-popup" data-toggle="modal" data-modal-target="#addUsersGroup" data-target="<?php echo url('/admin/users-groups/add') ?>">Add New Player</a>
+                      <a class="btn btn-primary pull-right open-popup" data-toggle="modal" data-modal-target="#addUsersGroup" data-target="<?php echo url('/admin/users-groups/add') ?>">Add New Users group</a>
                     </h1>
                     <div class="col-xs-12" id="results"></div>
                 </div>

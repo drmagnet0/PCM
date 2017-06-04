@@ -62,9 +62,17 @@ class ProjectsController extends Controller
       $data['heading'] = 'Add New Project';
     }
     $project = (array) $project;
+    $data['id'] = array_get($project, 'id');
     $data['name'] = array_get($project, 'name');
+    $data['country'] = array_get($project, 'country');
     $data['category_id'] = array_get($project, 'category_id');
     $data['bussinesaccount_id'] = array_get($project, 'bussinesaccount_id');
+    //$data['project_resources'] = array_get($project, 'project_resources');
+    $data['project_resources'] = [];
+    if ($project['project_resources']) {
+      $data['project_resources'] = explode(',', $project['project_resources']);
+    }
+    //$data['resources_id'] = array_get($project, 'resources_id');
     $data['status'] = array_get($project, 'status', 'Enabled');
     $data['slides'] = array_get($project, 'slides');
     $data['static'] = array_get($project, 'static');
@@ -73,12 +81,15 @@ class ProjectsController extends Controller
     $data['app'] = array_get($project, 'app');
     $data['startdate'] = array_get($project, 'startdate');
     $data['enddate'] = array_get($project, 'enddate');
+    $data['wavefor'] = array_get($project, 'wavefor');
     $data['image'] = '';
     if (! empty($project['image'])) {
       $data['image'] = $this->url->link('public/images/' . $project['image']);
     }
+    $data['projects'] = $this->load->model('Projects')->all();
     $data['categories'] = $this->load->model('Categories')->all();
-    $data['bussinesaccounts'] = $this->load->model('Users')->all();
+    $data['bussinesaccounts'] = $this->load->model('Users')->bs();
+    $data['resources'] = $this->load->model('Users')->res();
     return $this->view->render('/admin/projects/form', $data);
   }
 
@@ -117,9 +128,9 @@ class ProjectsController extends Controller
     $this->validator->required('startdate', 'start date is required');
     $this->validator->required('enddate', 'end date is required');
     if (is_null($id)) {
-      $this->validator->requiredFile('Image')->image('Image');
+      $this->validator->requiredFile('image')->image('image');
     }else {
-      $this->validator->image('Image');
+      $this->validator->image('image');
     }
     return $this->validator->passes();
   }

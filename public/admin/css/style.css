@@ -9,9 +9,14 @@ body {
 .vertical-middle {
   vertical-align: middle!important;
 }
-/*.page-header {
-    margin-top: 0;
-}*/
+/* make container full width */
+.navbar-default.sidebar {
+  display: none;
+}
+div#page-wrapper {
+    margin-left: 0;
+}
+/* make container full width */
 .alert {
     text-transform: capitalize;
 }

@@ -20,6 +20,22 @@ class UsersModel extends Model
                   //pred($users);
   }
 
+  public function bs()
+  {
+    return $this->select('u.*', 'ug.name AS `group`')->from('users u')
+                ->join('LEFT JOIN users_groups ug ON u.users_group_id=ug.id')->where('users_group_id=?', 4)
+                ->fetchAll();
+                  //pred($users);
+  }
+
+  public function res()
+  {
+    return $this->select('u.*', 'ug.name AS `group`')->from('users u')
+                ->join('LEFT JOIN users_groups ug ON u.users_group_id=ug.id')->where('users_group_id=?', 5)
+                ->fetchAll();
+                  //pred($users);
+  }
+
   public function create()
   {
     $image = $this->uploadImage();

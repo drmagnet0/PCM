@@ -27,12 +27,15 @@
             <?php } ?>
 
             <div class="row">
-              <div class="form-group col-lg-6">
+              <div class="form-group col-lg-4">
                 <label for="project-name">Name</label>
                 <input type="text" id="project-name" name="name" class="form-control" placeholder="Name" value="<?php echo $name; ?>">
               </div>
-
-              <div class="form-group col-lg-6">
+              <div class="form-group col-lg-4">
+                <label for="project-country">Country</label>
+                <input type="text" id="project-country" name="country" class="form-control" placeholder="Country" value="<?php echo $country; ?>">
+              </div>
+              <div class="form-group col-lg-4">
                 <label for="category_id">Player</label>
                 <select id="category_id" name="category_id" class="form-control">
                   <?php foreach ($categories as $category) { ?>
@@ -45,23 +48,23 @@
             <div class="row">
               <div class="form-group col-lg-4">
                 <label for="project-slides">slides</label>
-                <input type="text" id="project-slides" name="slides" class="form-control" placeholder="slides" value="<?php echo $slides; ?>">
+                <input type="number" id="project-slides" name="slides" class="form-control" placeholder="slides" value="<?php echo $slides; ?>">
               </div>
               <div class="form-group col-lg-2">
                 <label for="project-static">Static</label>
-                <input type="text" id="project-static" name="static" class="form-control" placeholder="static" value="<?php echo $static; ?>">
+                <input type="number" id="project-static" name="static" class="form-control" placeholder="static" value="<?php echo $static; ?>">
               </div>
               <div class="form-group col-lg-2">
                 <label for="project-basic">Basic</label>
-                <input type="text" id="project-basic" name="basic" class="form-control" placeholder="basic" value="<?php echo $basic; ?>">
+                <input type="number" id="project-basic" name="basic" class="form-control" placeholder="basic" value="<?php echo $basic; ?>">
               </div>
               <div class="form-group col-lg-2">
                 <label for="project-animation">Animation</label>
-                <input type="text" id="project-animation" name="animation" class="form-control" placeholder="animation" value="<?php echo $animation; ?>">
+                <input type="number" id="project-animation" name="animation" class="form-control" placeholder="animation" value="<?php echo $animation; ?>">
               </div>
               <div class="form-group col-lg-2">
                 <label for="project-app">App</label>
-                <input type="text" id="project-app" name="app" class="form-control" placeholder="app" value="<?php echo $app; ?>">
+                <input type="number" id="project-app" name="app" class="form-control" placeholder="app" value="<?php echo $app; ?>">
               </div>
             </div><!--row-->
 
@@ -78,13 +81,6 @@
 
             <div class="row">
               <div class="form-group col-lg-6">
-                <label for="status">Status</label>
-                <select class="form-control" id="status" name="status">
-                  <option value="enabled">Enabled</option>
-                  <option value="disabled" <?php echo $status == 'disabled' ? 'selected' : false; ?>>Disabled</option>
-                </select>
-              </div>
-              <div class="form-group col-lg-6">
                 <label for="ba_id">Account Manager</label>
                 <select id="ba_id" name="bussinesaccount_id" class="form-control">
                   <?php foreach ($bussinesaccounts as $bussinesaccount) { ?>
@@ -92,9 +88,33 @@
                   <?php } ?>
                 </select>
               </div>
+              <div class="form-group col-lg-6">
+                <label for="project_resources">Resurces</label>
+                <select id="project_resources" name="project_resources[]" class="form-control" multiple="multiple">
+                  <?php foreach ($resources as $resource) { ?>
+                    <option value="<?php echo $resource->id; ?>" <?php echo in_array($resource->id, $project_resources) ? 'selected' : false; ?>><?php echo $resource->name; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="wavefor">Wave For</label>
+                <select id="wavefor" name="wavefor" class="form-control">
+                  <?php foreach ($projects as $project) { if ($project->id == $id) continue; ?>
+                    <option value="0">New</option>
+                    <option value="<?php echo $project->id; ?>" <?php echo $project->id == $wavefor ? 'selected' : false; ?>><?php echo $project->name; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                  <option value="enabled">Enabled</option>
+                  <option value="disabled" <?php echo $status == 'disabled' ? 'selected' : false; ?>>Disabled</option>
+                </select>
+              </div>
               <div class="form-group col-lg-12">
                 <label for="project-image">Cover</label>
-                <input type="file" id="project-image" name="Image" class="form-control">
+                <input type="file" id="project-image" name="image" class="form-control">
               </div>
             </div><!--row-->
 

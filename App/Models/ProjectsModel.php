@@ -38,6 +38,7 @@ class ProjectsModel extends Model
     return $this->select('p.*', 'c.name AS `category`', 'u.name AS `bussinesaccount`')
                 ->from('projects p')
                 ->join('LEFT JOIN players c ON p.category_id=c.id')
+                // ->join('LEFT JOIN users u ON p.bussinesaccount_id=u.id')->where('users_group_id=?', 4)
                 ->join('LEFT JOIN users u ON p.bussinesaccount_id=u.id')
                 ->fetchAll();
   }
@@ -57,8 +58,11 @@ class ProjectsModel extends Model
       $this->data('image', $image);
     }
     $this->data('name', $this->request->post('name'))
+         ->data('country', $this->request->post('country'))
          ->data('category_id', $this->request->post('category_id'))
          ->data('bussinesaccount_id', $this->request->post('bussinesaccount_id'))
+         ->data('project_resources', implode(',', array_filter((array) $this->request->post('project_resources'), 'is_numeric')))
+         //->data('resources_id', $this->request->post('resources_id'))
          ->data('status', $this->request->post('status'))
          ->data('slides', $this->request->post('slides'))
          ->data('static', $this->request->post('static'))
@@ -68,12 +72,13 @@ class ProjectsModel extends Model
          ->data('startdate', $this->request->post('startdate'))
          ->data('enddate', $this->request->post('enddate'))
          ->data('created', $now = time())
+         ->data('wavefor', $this->request->post('wavefor'))
          ->insert('Projects');
   }
 
   private function uploadImage()
   {
-    $image = $this->request->file('projectimage');
+    $image = $this->request->file('image');
     if (! $image->exists()) {
       return '';
     }
@@ -86,9 +91,13 @@ class ProjectsModel extends Model
     if ($image) {
       $this->data('image', $image);
     }
+
     $this->data('name', $this->request->post('name'))
+         ->data('country', $this->request->post('country'))
          ->data('category_id', $this->request->post('category_id'))
          ->data('bussinesaccount_id', $this->request->post('bussinesaccount_id'))
+         ->data('project_resources', implode(',', array_filter((array) $this->request->post('project_resources'), 'is_numeric')))
+         //->data('resources_id', $this->request->post('resources_id'))
          ->data('status', $this->request->post('status'))
          ->data('slides', $this->request->post('slides'))
          ->data('static', $this->request->post('static'))
@@ -97,6 +106,7 @@ class ProjectsModel extends Model
          ->data('app', $this->request->post('app'))
          ->data('startdate', $this->request->post('startdate'))
          ->data('enddate', $this->request->post('enddate'))
+         ->data('wavefor', $this->request->post('wavefor'))
          ->where('id=?', $id)
          ->update('Projects');
   }

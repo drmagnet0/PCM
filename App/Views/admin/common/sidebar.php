@@ -12,8 +12,33 @@
               </div>
               <!-- /.navbar-header -->
 
+              <ul class="nav navbar-top-links navbar-left">
+                <li>
+                  <a href="dashboard"><i class="fa fa-home fa-fw"></i> Home</a>
+                </li>
+                <li>
+                  <a href="users"><i class="fa fa-user fa-fw"></i> Users</a>
+                </li>
+                <li>
+                  <a href="users-groups"><i class="fa fa-users fa-fw"></i> Users Groups</a>
+                </li>
+                <li>
+                  <a href="categories"><i class="fa fa-play-circle fa-fw"></i> Players</a>
+                </li>
+                <li>
+                  <a href="projects"><i class="fa fa-table fa-fw"></i> Projects</a>
+                </li>
+                <li>
+                  <a href="settings"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                </li>
+                <!-- <li class="divider"></li> -->
+                <!-- <li>
+                  <a href="<?php #echo url('/admin/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li> -->
+              </ul>
+
               <ul class="nav navbar-top-links navbar-right">
-                  <li class="dropdown">
+                  <!-- <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                           <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                       </a>
@@ -61,10 +86,9 @@
                               </a>
                           </li>
                       </ul>
-                      <!-- /.dropdown-messages -->
-                  </li>
+                  </li> -->
                   <!-- /.dropdown -->
-                  <li class="dropdown">
+                  <!-- <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                           <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
                       </a>
@@ -140,10 +164,9 @@
                               </a>
                           </li>
                       </ul>
-                      <!-- /.dropdown-tasks -->
-                  </li>
+                  </li> -->
                   <!-- /.dropdown -->
-                  <li class="dropdown">
+                  <!-- <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                           <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                       </a>
@@ -200,8 +223,7 @@
                               </a>
                           </li>
                       </ul>
-                      <!-- /.dropdown-alerts -->
-                  </li>
+                  </li> -->
                   <!-- /.dropdown -->
                   <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -210,8 +232,8 @@
                       <ul class="dropdown-menu dropdown-user">
                           <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                           </li>
-                          <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                          </li>
+                          <!-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                          </li> -->
                           <li class="divider"></li>
                           <li><a href="<?php echo url('/admin/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                           </li>
