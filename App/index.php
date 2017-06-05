@@ -59,12 +59,6 @@ $app->route->add('/admin/projects/save/:id', 'Admin/Projects@save', 'POST');
 $app->route->add('/admin/projects/delete/:id', 'Admin/Projects@delete', 'POST');
 
 
-$app->route->add('/admin/projects/:id/comments', 'Admin/Comments');
-$app->route->add('/admin/projects/comments/edit/:id', 'Admin/Comments@edit');
-$app->route->add('/admin/projects/comments/save/:id', 'Admin/Comments@save', 'POST');
-$app->route->add('/admin/projects/comments/delete/:id', 'Admin/Comments@delete');
-
-
 $app->route->add('/admin/categories', 'Admin/Categories');
 $app->route->add('/admin/categories/add', 'Admin/Categories@add', 'POST');
 $app->route->add('/admin/categories/submit', 'Admin/Categories@submit', 'POST');
@@ -74,12 +68,11 @@ $app->route->add('/admin/categories/delete/:id', 'Admin/Categories@delete', 'POS
 
 
 $app->route->add('/admin/settings', 'Admin/Settings');
-$app->route->add('/admin/settings/save', 'Admin/Settings@save', 'POST');
-
-
-$app->route->add('/admin/contacts', 'Admin/Contacts');
-$app->route->add('/admin/contacts/reply/:id', 'Admin/Contacts@reply');
-$app->route->add('/admin/contacts/send/:id', 'Admin/Contacts@send', 'POST');
+$app->route->add('/admin/settings/add', 'Admin/Settings@add', 'POST');
+$app->route->add('/admin/settings/submit', 'Admin/Settings@submit', 'POST');
+$app->route->add('/admin/settings/edit/:id', 'Admin/Settings@edit', 'POST');
+$app->route->add('/admin/settings/save/:id', 'Admin/Settings@save', 'POST');
+$app->route->add('/admin/settings/delete/:id', 'Admin/Settings@delete', 'POST');
 
 
 $app->route->add('/admin/logout', 'Admin/Logout');
